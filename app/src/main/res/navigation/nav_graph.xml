@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/todayFragment">
+
+    <fragment
+        android:id="@+id/weeklyFragment"
+        android:name="com.justnik.justweather.ui.fragment.WeeklyFragment"
+        android:label="Forecast for a week"
+        tools:layout="@layout/fragment_weekly" />
+    <fragment
+        android:id="@+id/todayFragment"
+        android:name="com.justnik.justweather.ui.fragment.TodayFragment"
+        android:label="Today's weather"
+        tools:layout="@layout/fragment_today" />
+    <fragment
+        android:id="@+id/shareFragment"
+        android:name="com.justnik.justweather.ui.fragment.ShareFragment"
+        android:label="Share"
+        tools:layout="@layout/fragment_share" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.justnik.justweather.ui.fragment.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.justnik.justweather.ui.fragment.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+</navigation>
