@@ -24,6 +24,9 @@ public class Forecast {
     @SerializedName("wind")
     @Expose
     private Wind wind;
+    @SerializedName("rain")
+    @Expose
+    private Rain rain;
     @SerializedName("clouds")
     @Expose
     private Clouds clouds;
@@ -94,6 +97,14 @@ public class Forecast {
         this.wind = wind;
     }
 
+    public Rain getRain() {
+        return rain;
+    }
+
+    public void setRain(Rain rain) {
+        this.rain = rain;
+    }
+
     public Clouds getClouds() {
         return clouds;
     }
@@ -148,6 +159,74 @@ public class Forecast {
 
     public void setCod(Integer cod) {
         this.cod = cod;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Forecast.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("coord");
+        sb.append('=');
+        sb.append(((this.coord == null)?"<null>":this.coord));
+        sb.append(',');
+        sb.append("weather");
+        sb.append('=');
+        sb.append(((this.weather == null)?"<null>":this.weather));
+        sb.append(',');
+        sb.append("base");
+        sb.append('=');
+        sb.append(((this.base == null)?"<null>":this.base));
+        sb.append(',');
+        sb.append("main");
+        sb.append('=');
+        sb.append(((this.main == null)?"<null>":this.main));
+        sb.append(',');
+        sb.append("visibility");
+        sb.append('=');
+        sb.append(((this.visibility == null)?"<null>":this.visibility));
+        sb.append(',');
+        sb.append("wind");
+        sb.append('=');
+        sb.append(((this.wind == null)?"<null>":this.wind));
+        sb.append(',');
+        sb.append("rain");
+        sb.append('=');
+        sb.append(((this.rain == null)?"<null>":this.rain));
+        sb.append(',');
+        sb.append("clouds");
+        sb.append('=');
+        sb.append(((this.clouds == null)?"<null>":this.clouds));
+        sb.append(',');
+        sb.append("dt");
+        sb.append('=');
+        sb.append(((this.dt == null)?"<null>":this.dt));
+        sb.append(',');
+        sb.append("sys");
+        sb.append('=');
+        sb.append(((this.sys == null)?"<null>":this.sys));
+        sb.append(',');
+        sb.append("timezone");
+        sb.append('=');
+        sb.append(((this.timezone == null)?"<null>":this.timezone));
+        sb.append(',');
+        sb.append("id");
+        sb.append('=');
+        sb.append(((this.id == null)?"<null>":this.id));
+        sb.append(',');
+        sb.append("name");
+        sb.append('=');
+        sb.append(((this.name == null)?"<null>":this.name));
+        sb.append(',');
+        sb.append("cod");
+        sb.append('=');
+        sb.append(((this.cod == null)?"<null>":this.cod));
+        sb.append(',');
+        if (sb.charAt((sb.length()- 1)) == ',') {
+            sb.setCharAt((sb.length()- 1), ']');
+        } else {
+            sb.append(']');
+        }
+        return sb.toString();
     }
 
 }

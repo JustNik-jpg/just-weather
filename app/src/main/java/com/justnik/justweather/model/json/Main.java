@@ -72,4 +72,40 @@ public class Main {
         this.humidity = humidity;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Main.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("temp");
+        sb.append('=');
+        sb.append(((this.temp == null) ? "<null>" : this.temp));
+        sb.append(',');
+        sb.append("feelsLike");
+        sb.append('=');
+        sb.append(((this.feelsLike == null) ? "<null>" : this.feelsLike));
+        sb.append(',');
+        sb.append("tempMin");
+        sb.append('=');
+        sb.append(((this.tempMin == null) ? "<null>" : this.tempMin));
+        sb.append(',');
+        sb.append("tempMax");
+        sb.append('=');
+        sb.append(((this.tempMax == null) ? "<null>" : this.tempMax));
+        sb.append(',');
+        sb.append("pressure");
+        sb.append('=');
+        sb.append(((this.pressure == null) ? "<null>" : this.pressure));
+        sb.append(',');
+        sb.append("humidity");
+        sb.append('=');
+        sb.append(((this.humidity == null) ? "<null>" : this.humidity));
+        sb.append(',');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
+        } else {
+            sb.append(']');
+        }
+        return sb.toString();
+    }
+
 }

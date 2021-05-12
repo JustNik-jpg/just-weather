@@ -28,4 +28,24 @@ public class Wind {
         this.deg = deg;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Wind.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("speed");
+        sb.append('=');
+        sb.append(((this.speed == null) ? "<null>" : this.speed));
+        sb.append(',');
+        sb.append("deg");
+        sb.append('=');
+        sb.append(((this.deg == null) ? "<null>" : this.deg));
+        sb.append(',');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
+        } else {
+            sb.append(']');
+        }
+        return sb.toString();
+    }
+
 }
