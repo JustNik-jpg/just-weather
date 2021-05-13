@@ -1,13 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.TodayFragment">
 
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvViewMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today" />
-</FrameLayout>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/min_temp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMinTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="16"
+        app:layout_constraintBottom_toBottomOf="@+id/tvViewMin"
+        app:layout_constraintStart_toEndOf="@+id/tvViewMin"
+        app:layout_constraintTop_toTopOf="@+id/tvViewMin" />
+
+    <TextView
+        android:id="@+id/tvCurrentTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="25"
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewMin" />
+
+    <TextView
+        android:id="@+id/tvMaxTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="22"
+        app:layout_constraintBottom_toBottomOf="@+id/tvViewMax"
+        app:layout_constraintStart_toEndOf="@+id/tvViewMax"
+        app:layout_constraintTop_toTopOf="@+id/tvViewMax" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/clear"
+        app:layout_constraintEnd_toEndOf="@+id/ivWeatherIcon"
+        app:layout_constraintStart_toStartOf="@+id/ivWeatherIcon"
+        app:layout_constraintTop_toBottomOf="@+id/ivWeatherIcon" />
+
+    <TextView
+        android:id="@+id/tvViewFeels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/feels_like"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentTemp" />
+
+    <TextView
+        android:id="@+id/tvFeelsLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/tvViewFeels"
+        app:layout_constraintStart_toEndOf="@+id/tvViewFeels"
+        app:layout_constraintTop_toTopOf="@+id/tvViewFeels" />
+
+    <TextView
+        android:id="@+id/tvViewMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/max_temp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMinTemp"
+        app:layout_constraintStart_toEndOf="@+id/tvMinTemp"
+        app:layout_constraintTop_toTopOf="@+id/tvMinTemp" />
+
+    <ImageView
+        android:id="@+id/ivWeatherIcon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:contentDescription="@string/icon_desc"
+        android:src="@drawable/ic_01d"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCurrentTemp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/tvCurrentTemp"
+        app:layout_constraintTop_toTopOf="@+id/tvCurrentTemp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
