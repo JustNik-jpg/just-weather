@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="forecast"
+            type="com.justnik.justweather.model.json.Forecast" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.TodayFragment">
@@ -22,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="16"
+        android:text="@{String.valueOf(forecast.main.tempMin)}"
         app:layout_constraintBottom_toBottomOf="@+id/tvViewMin"
         app:layout_constraintStart_toEndOf="@+id/tvViewMin"
         app:layout_constraintTop_toTopOf="@+id/tvViewMin" />
@@ -33,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="25"
+        android:text="@{String.valueOf(forecast.main.temp)}"
         android:textSize="48sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvViewMin" />
@@ -43,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="22"
+        android:text="@{String.valueOf(forecast.main.tempMax)}"
         app:layout_constraintBottom_toBottomOf="@+id/tvViewMax"
         app:layout_constraintStart_toEndOf="@+id/tvViewMax"
         app:layout_constraintTop_toTopOf="@+id/tvViewMax" />
@@ -53,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/clear"
+        android:text="@{forecast.weather.get(0).description.substring(0,1).toUpperCase()+forecast.weather.get(0).description.substring(1)}"
         app:layout_constraintEnd_toEndOf="@+id/ivWeatherIcon"
         app:layout_constraintStart_toStartOf="@+id/ivWeatherIcon"
         app:layout_constraintTop_toBottomOf="@+id/ivWeatherIcon" />
@@ -73,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="0"
+        android:text="@{String.valueOf(forecast.main.feelsLike)}"
         app:layout_constraintBottom_toBottomOf="@+id/tvViewFeels"
         app:layout_constraintStart_toEndOf="@+id/tvViewFeels"
         app:layout_constraintTop_toTopOf="@+id/tvViewFeels" />
@@ -93,10 +101,22 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:contentDescription="@string/icon_desc"
-        android:src="@drawable/ic_01d"
+        android:src="@drawable/ic__01d"
         app:layout_constraintBottom_toBottomOf="@+id/tvCurrentTemp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/tvCurrentTemp"
         app:layout_constraintTop_toTopOf="@+id/tvCurrentTemp" />
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@{forecast.name}"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewFeels" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,5 +1,6 @@
 package com.justnik.justweather.ui;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -53,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
         setupDrawer();
         setupBottomNav();
 
-        if (viewModel.getForecast()==null){
-            loadForecast("Kyiv");
-        }
 
     }
 
@@ -122,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDialogPositiveClick(String s) {
                     Log.d("JustDialog", "onDialogPositiveClick: "+s);
+                    viewModel.refreshForecast(s,getApplicationContext());
                 }
 
                 @Override
@@ -135,34 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void loadForecast(String s){
-         viewModel.loadForecast(s).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new Observer<Response<Forecast>>() {
 
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(@NonNull Response<Forecast> forecastResponse) {
-                        Log.d("JustInternet", "onNext: "+forecastResponse.body()+" \n"+forecastResponse.message());
-
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Log.d("JustInternet", "onError: " + e.getMessage());
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
 
 }

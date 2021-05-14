@@ -29,6 +29,7 @@
     <string name="mist">Mist</string>
 
     <string name="icon_desc">Weather icon</string>
+    <string name="invalid_city">Invalid city</string>
 
 
 

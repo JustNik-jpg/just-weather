@@ -8,5 +8,5 @@ import retrofit2.Response;
 
 public interface MainRepository {
 
-    Observable<Response<Forecast>> getForecast(String city);
+    Observable<Forecast> getForecast(String city);
 }
