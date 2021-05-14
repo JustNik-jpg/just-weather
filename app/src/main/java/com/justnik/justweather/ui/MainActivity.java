@@ -1,5 +1,6 @@
 package com.justnik.justweather.ui;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +34,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private NavController navController;
     private DrawerLayout mDrawerLayout;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         navController = navHostFragment.getNavController();
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            if ((destination.getId() == R.id.settingsFragment) || (destination.getId() == R.id.aboutFragment)) {
+            if (destination.getId() == R.id.aboutFragment) {
                 enabled = true;
             }
         });
@@ -71,12 +72,36 @@ public class MainActivity extends AppCompatActivity {
     private void setupBottomNav() {
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigationView);
         NavigationUI.setupWithNavController(bottomNavigation, navController);
+        bottomNavigation.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId()==R.id.shareFragment){
+
+                Forecast forecast = viewModel.forecast.getValue();
+
+                if (forecast!=null){
+
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    String builder = "Check out today's weather!" +
+                            "\nTemperature: " +
+                            forecast.getMain().getTemp() +
+                            "Clouds: " +
+                            forecast.getWeather().get(0).getDescription() +
+                            "\nCheck more on JustWeather!";
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, builder);
+                    Intent intent = Intent.createChooser(shareIntent,"Share");
+                    startActivity(intent);
+                }
+
+            }
+            return true;
+        });
+
     }
 
     private void setupDrawer() {
         mDrawerLayout = findViewById(R.id.drawerLayout);
         AppBarConfiguration appBarConfiguration =
-                new AppBarConfiguration.Builder(R.id.weeklyFragment, R.id.todayFragment, R.id.shareFragment)
+                new AppBarConfiguration.Builder(R.id.weeklyFragment, R.id.todayFragment)
                         .setOpenableLayout(mDrawerLayout)
                         .build();
 
@@ -133,7 +158,5 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
-
-
 
 }
