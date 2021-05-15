@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Just Weather</string>
 
+    <string name="about">This is small weather app designed to provide it\'s
+        users with most recent weather information.\nThis app uses free OpenWeather API</string>
+    <string name="author">Developed by JustNik</string>
+
     <string name="city">City</string>
     <string name="search_city">Search city</string>
     <string name="search">Search</string>

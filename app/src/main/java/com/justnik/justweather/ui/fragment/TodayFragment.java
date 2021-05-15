@@ -36,7 +36,7 @@ public class TodayFragment extends Fragment {
 
         ImageView ivWeatherIcon = view.findViewById(R.id.ivWeatherIcon);
 
-        viewModel = new ViewModelProvider(requireActivity(), factory).get(WeatherViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity().getViewModelStore(), factory).get(WeatherViewModel.class);
 
         if (viewModel.forecast.getValue()==null){
             viewModel.refreshForecast("Kyiv", getContext());

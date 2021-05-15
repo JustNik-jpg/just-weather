@@ -91,10 +91,13 @@ public class MainActivity extends AppCompatActivity{
                     Intent intent = Intent.createChooser(shareIntent,"Share");
                     startActivity(intent);
                 }
+                return true;
 
             }
+            navController.navigate(item.getItemId());
             return true;
         });
+
 
     }
 
