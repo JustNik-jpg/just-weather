@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity{
     private void setupDrawer() {
         mDrawerLayout = findViewById(R.id.drawerLayout);
         AppBarConfiguration appBarConfiguration =
-                new AppBarConfiguration.Builder(R.id.weeklyFragment, R.id.todayFragment)
+                new AppBarConfiguration.Builder(R.id.todayFragment)
                         .setOpenableLayout(mDrawerLayout)
                         .build();
 

@@ -6,10 +6,6 @@
         android:icon="@drawable/ic_today"
         android:title="@string/nav_today" />
     <item
-        android:id="@+id/weeklyFragment"
-        android:icon="@drawable/ic_week"
-        android:title="@string/nav_week" />
-    <item
         android:id="@+id/shareFragment"
         android:icon="@drawable/ic_share"
         android:title="@string/nav_share" />

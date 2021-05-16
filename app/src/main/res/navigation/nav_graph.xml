@@ -6,11 +6,6 @@
     app:startDestination="@id/todayFragment">
 
     <fragment
-        android:id="@+id/weeklyFragment"
-        android:name="com.justnik.justweather.ui.fragment.WeeklyFragment"
-        android:label="Forecast for a week"
-        tools:layout="@layout/fragment_weekly" />
-    <fragment
         android:id="@+id/todayFragment"
         android:name="com.justnik.justweather.ui.fragment.TodayFragment"
         android:label="Today's weather"
