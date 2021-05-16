@@ -25,8 +25,6 @@ public interface ApplicationComponent {
 
     Application getApplication();
 
-    WeatherAPI getWeatherAPI();
-
     WeatherRepository getWeatherRepository();
 
 
